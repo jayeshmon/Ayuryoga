@@ -13,9 +13,8 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "card.io.cordova.mobilesdk": "^2.1.0",
-    "com.paypal.cordova.mobilesdk": "file:../PayPal-Cordova-Plugin-master",
-    "com.razorpay.cordova": "file:../razorpay-cordova-master",
+
+   
     "cordova-android": "^8.1.0",
     "cordova-browser": "^6.0.0",
     "cordova-ios": "^6.2.0",
@@ -44,7 +43,7 @@
         "GPS_REQUIRED": "true"
       },
       "cordova-plugin-file": {},
-      "com.razorpay.cordova": {},
+   
       "org.apache.cordova.geolocation": {},
       "cordova-plugin-firebase-lib": {},
       "cordova-plugin-androidx": {},
@@ -54,7 +53,7 @@
         "ANALYTICS_COLLECTION_ENABLED": "true",
         "AUTOMATIC_SCREEN_REPORTING_ENABLED": "true"
       },
-      "com.paypal.cordova.mobilesdk": {},
+     
       "cordova-plugin-console": {}
     },
     "platforms": [
