@@ -14,8 +14,8 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "card.io.cordova.mobilesdk": "^2.1.0",
-    "com.paypal.cordova.mobilesdk": "file:../PayPal-Cordova-Plugin-master",
-    "com.razorpay.cordova": "file:../razorpay-cordova-master",
+    
+   
     "cordova-android": "^8.1.0",
     "cordova-browser": "^6.0.0",
     "cordova-plugin-androidx": "^3.0.0",
