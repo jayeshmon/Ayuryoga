@@ -1,0 +1,9 @@
+	
+	<button modifier="quiet" onclick="buynow()" id="buyNowBtn"> Buy Now !</button>|
+   <ons-button modifier="quiet" id="buyInFutureBtn"> Pay in Future !</ons-button>|
+    <ons-button modifier="quiet" id="profileSharingBtn"> Profile Sharing !</ons-button>|
+    <ons-button modifier="quiet" id="cardScanBtn">Advanced: Use card.io scan only</ons-button>
+	
+	
+	
+	addorder("CART_06","9744687529","arsenal13",1,"10-10-2020","sasffsdf","aearsrsre","COD","UNPAID","UNDELIVERED");

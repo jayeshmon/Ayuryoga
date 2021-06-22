@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "375347410067",
+    "project_id": "crown-7368f",
+    "storage_bucket": "crown-7368f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375347410067:android:65a19df87f31f8eb230966",
+        "android_client_info": {
+          "package_name": "com.crown.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "375347410067-k6hb0nf8nhgmv013ljfj4qiivse7orr2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4aaakmYY8fEdVlFqPF1MkcDwbIiUDkl8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "375347410067-k6hb0nf8nhgmv013ljfj4qiivse7orr2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

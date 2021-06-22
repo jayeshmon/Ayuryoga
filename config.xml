@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.crown.app" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Crown backers and foods</name>
+    <description>
+  Crown backers and foods
+    </description>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">
+     GCC Solution
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+	<platform name="android">
+  <resource-file src="google-services.json" target="app/google-services.json" />
+    <allow-intent href="market:*" />
+</platform>
+    
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+	<platform name="android">
+	
+  <icon background="res/icon/android/ldpi.png" density="ldpi" foreground="res/icon/android/ldpi.png" />
+  <icon background="res/icon/android/mdpi.png" density="mdpi" foreground="res/icon/android/mdpi.png" />
+  <icon background="res/icon/android/hdpi.png" density="hdpi" foreground="res/icon/android/hdpi.png" />
+  <icon background="res/icon/android/xhdpi.png" density="xhdpi" foreground="res/icon/android/xhdpi.png" />
+  <icon background="res/icon/android/xxhdpi.png" density="xxhdpi" foreground="res/icon/android/xxhdpi.png" />
+  <icon background="res/icon/android/xxxhdpi.png" density="xxxhdpi" foreground="res/icon/android/xxxhdpi.png" />
+</platform>
+</widget>

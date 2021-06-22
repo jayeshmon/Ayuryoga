@@ -1,0 +1,22 @@
+cordova plugin add card.io.cordova.mobilesdk
+cordova plugin add com.paypal.cordova.mobilesdk
+cordova plugin add com.razorpay.cordova
+cordova plugin add cordova-plugin-androidx 
+cordova plugin add cordova-plugin-device 
+cordova plugin add cordova-plugin-file
+cordova plugin add cordova-plugin-geolocation 
+cordova plugin add cordova-plugin-inappbrowser
+cordova plugin add cordova-plugin-whitelist 
+cordova plugin add cordova-plugin-x-socialsharing
+cordova plugin add cordova-support-android-plugin 
+cordova plugin add cordova-support-google-services
+cordova plugin add es6-promise-plugin 
+cordova plugin add org.apache.cordova.geolocation 
+ 
+ 
+ 
+ 
+ cordova plugin add cordova-plugin-firebase-analytics 
+ cordova plugin add cordova-plugin-firebase-lib 
+ cordova plugin add cordova-plugin-firebase
+ cordova plugin add cordova-plugin-firebasex 

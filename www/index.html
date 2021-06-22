@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<!--
+   Licensed to the Apache Software Foundation (ASF) under one
+   or more contributor license agreements.  See the NOTICE file
+   distributed with this work for additional information
+   regarding copyright ownership.  The ASF licenses this file
+   to you under the Apache License, Version 2.0 (the
+   "License"); you may not use this file except in compliance
+   with the License.  You may obtain a copy of the License at
+   
+   http://www.apache.org/licenses/LICENSE-2.0
+   
+   Unless required by applicable law or agreed to in writing,
+   software distributed under the License is distributed on an
+   "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, either express or implied.  See the License for the
+   specific language governing permissions and limitations
+   under the License.
+   -->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!--
+         Customize this policy to fit your own app's needs. For more guidance, see:
+             https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+         Some notes:
+             * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+             * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                 * Enable inline JS: add 'unsafe-inline' to default-src
+         -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="onsen/css/onsenui.css">
+<link rel="stylesheet" href="onsen/css/onsen-css-components.css">
+ <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/checkoutstyle.css" />
+
+    <link rel="stylesheet" href="css/swiperbundle.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/duotone.css"  />
+    <link rel="stylesheet" href="css/fontawesome.css"  />
+    
+    <script src="onsen/js/onsenui.min.js"></script>
+    <script src="js/jquerymin.js"></script>
+    <script src="scripts/onsen_project.js"></script>
+    <script src="scripts/profile.js"></script>
+    <script src="scripts/swiperbundlemin.js"></script>
+	
+  <script src="scripts/jqueryui.js"></script>
+  <link rel="stylesheet" href="css/jqueryui.css">
+    <script src="https://cdn.checkout.com/js/framesv2.min.js"></script>
+	<style>
+        .faq__content {
+            background-color: transparent !important
+        }
+        
+        ons-toolbar.toolbar.toolbar--material,
+        .tabbar.ons-tabbar__footer.ons-swiper-tabbar.tabbar--material {
+            background: #fff;
+            box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, .2);
+        }
+        
+        button.tabbar__button.tabbar--material__button {
+            color: #549c2f;
+        }
+        
+         :checked+.tabbar__button {
+            color: #549c2f !important;
+        }
+        
+        ons-icon.ons-icon.zmdi.zmdi-menu {
+            color: #549c2f;
+            font-size: 30px;
+        }
+        
+        .toolbar.toolbar--material+.page__background+.page__content {
+            top:62px
+        }
+        .ons-css .toast{
+           top:40%;
+           bottom: auto;
+        }
+        ons-toolbar-button.toolbar-button--material.toolbar-button {
+            color: #549c2f;
+        }
+        
+        input.search-input.search-input--material {
+            height: 40px;
+            background-color: #fff;
+            
+        }
+        
+      ons-range, ons-select {
+          display: block !important;
+      }
+              
+      
+        
+        .conatiners {
+            width: 100%;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+        
+        ons-search-input {
+            margin-right: 5px;
+        }
+        
+        .inputs {
+            width: 90%;
+        }
+        
+        select.select-input.inputs {
+            border: 1px solid #ccc;
+            margin: 10px 0;
+            height: 50px;
+            box-sizing: border-box;
+            background-image: none;
+            -webkit-apearance: auto;
+            appearance: auto;
+            color: #9E9E9E;
+            padding: 6px 10px;
+        }
+        
+        .ordergroup {
+            background-color: #000;
+        }
+        
+        .inputs.textarea {
+            background: none;
+            padding: 6px 10px;
+        }
+        
+        .text-input--material__label {
+            left: 10px;
+            top: 6px
+        }
+        
+        .toolbar--material__center,
+        .toolbar--material__left,
+        .toolbar--material__right {
+            color: #333;
+        }
+        
+        .back-button--material__icon {
+            fill: #333
+        }
+        
+        input.text-input.text-input--material.text-input--underbar {
+            background-image: none;
+        }
+        
+        h3 {
+            margin: 0
+        }
+        
+        ons-button#chkbtn {
+            position: fixed;
+            width: 100%;
+            left: 0;
+            bottom: 0;
+            padding: 10px;
+        }
+        
+        .my-account ul {
+            list-style: none;
+            background: #333;
+            color: #fff;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 15px 0;
+            margin: 0;
+        }
+        ons-search-input {
+    margin-right: 0;
+    width: 90%;
+    margin-left: 20px;
+}
+.right.toolbar__right.toolbar--material__right{
+   
+    min-width: 0;
+}
+        .my-account ul li {
+            flex: 0 0 33.33%;
+            font-size: 13px;
+            margin: 10px 0;
+        }
+        .loading-img {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+        .prfl {
+            background: #FFC107;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            color: #fff;
+        }
+        
+        .my-account ul li i {
+            font-size: 16px
+        }
+        
+        .inputs input,
+        .inputs select,
+        .inputs textarea {
+            border: 1px solid #ccc;
+            padding: 6px 10px;
+            height: 50px;
+            background-color: #fff !important;
+            box-sizing: border-box;
+        }
+        
+        .star {
+            font-size: 15px;
+        }
+        
+        body {
+            font-family: 'Comfortaa' !important;
+        }
+    </style>
+    <title>Hello World</title>
+</head>
+
+<body>
+    <ons-navigator id="appNavigator" swipeable swipe-target-width="80px">
+        <ons-page>
+            <ons-splitter id="appSplitter">
+                <ons-splitter-side  id="menu" style="justify-content: flex-start;" side="left" width="220px" collapse >
+    <ons-page>
+      
+            <ons-list>
+               <div class="title">AyurYoga</div>
+               
+               <ons-list-items style="color: #444;display: block;width: 100%;padding: 10px;background: none;min-height: auto;text-align:left;" onclick="changepage('profile.html',1)">
+                  <ons-icon icon="fa-cog" class="ons-icon ion-home "></ons-icon>
+                  Profile
+               </ons-list-items >
+               <ons-list-items onclick="myorders()" style="color: #444;display: block;width: 100%;padding: 10px;background: none;min-height: auto;text-align:left;" >
+                  <ons-icon icon="fa-shopping-bag" class="ons-icon ion-home "></ons-icon>
+                  My Orders
+               </ons-list-items>
+               <ons-list-items onclick="signout()" style="color: #444;display: block;width: 100%;padding: 10px;background: none;min-height: auto;text-align:left;">
+                  <ons-icon  icon="fa-sign-out" class="ons-icon ion-home "></ons-icon>
+                  Signout
+               </ons-list-items>
+               <ons-list-items style="color: #444;display: block;width: 100%;padding: 10px;background: none;min-height: auto;text-align:left;">
+                  <ons-icon icon="fa-history" class="ons-icon ion-home "></ons-icon>
+                  History
+               </ons-list-items style="color: #444;display: block;width: 100%;padding: 10px;background: none;min-height: auto;text-align:left;">
+            </ons-list>
+   <style>
+               ons-list#kitten-list {
+               padding: 30px 0;
+               }
+               .most.list-header{color:#111}
+               .title{
+               width: 100%;
+               font-size: 30px;
+               padding: 10px;
+               background: #fff;
+               }
+               .most-selling .checkbox__input:checked + .checkbox--material__checkmark:after{
+               top: -10px;
+               left: -20px;
+               border-color:#fff;
+               }
+               #toggle-content{
+               margin-right: 10px;
+               padding-bottom: 10px;
+               text-align: right;
+               }
+               #menu{
+               justify-content: flex-start;
+               }
+               #menu ons-list-items {
+               color: #444;
+               display: block;
+               width: 100%;
+               padding: 10px;
+               background: none;
+               min-height: auto;
+               text-align: left;
+               }
+               ons-icon.ons-icon{
+               vertical-align: top !important;
+               
+               }
+             
+              #home h3 {
+    text-align: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+#home h3:after {
+    content: "";
+    width: 150px;
+    height: 3px;
+    background: #93ba97;
+    display: block;
+    margin: auto;
+    position: absolute;
+    top: 27px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+			   ons-list-item.list-item.list-item--expandable.list-item--material {
+    display: flex;
+    flex-wrap: wrap;
+	    width: 90%;
+    box-shadow: 0 0 1px 1px rgba(0,0,0,.2);
+    margin: 10px auto;
+}
+.list-item--material__left{    padding: 4px 0;
+    min-width: 36px;
+    line-height: 1;
+    min-height: auto;
+}
+ .list-item--material__center{ padding: 4px 0;
+}
+.swiper-wrapper{
+
+margin-left:0px !important;}
+
+            </style> </ons-page>
+  </ons-splitter-side>
+                <ons-splitter-content page="tabbar.html"></ons-splitter-content>
+            </ons-splitter>
+        </ons-page>
+    </ons-navigator>
+    <template id="tabbar.html">
+         <ons-page id="tabbar-page">
+           
+            <ons-tabbar  id="appTabbar" position="bottom" var="myTabbar">
+               <ons-tab style="width:25%" label="Home" icon="fa-home" page="home.html" active></ons-tab>
+               <ons-tab  style="width:25%" label="Products" icon="fa-cubes"  page="list.html"></ons-tab>
+			   <ons-tab style="width:25%" label="Consultation" icon="fa-user-md" page="consultation.html"></ons-tab>
+               <ons-tab id="cattab" hidden style="width:25%" label="Categories" icon="fa-user-md" page="category.html"></ons-tab>
+			   
+               <ons-tab id="cartlogo" style="width:25%" label="Cart" icon="fa-shopping-cart"  page="cart.html"  ></ons-tab>
+			   <ons-tab id="subcattab" hidden   label="Subategories" icon="fa-user-md" page="subcategory.html"></ons-tab>
+			   <ons-tab id="list2" hidden   label="Searchresult" icon="fa-user-md" page="list2.html"></ons-tab>
+			  
+			   
+            </ons-tabbar>
+            <style>
+               .left{
+               font-size: 24px;
+               }
+               .search-input{ margin-top: 8px;margin-left: 0px;}
+            </style>
+            <script>
+               ons.getScriptPage().addEventListener('prechange', function(event) {
+                 if (event.target.matches('#appTabbar')) {
+                  // event.currentTarget.querySelector('ons-toolbar .center').innerHTML = event.tabItem.getAttribute('label');
+                 }
+               });
+            </script>
+         </ons-page>
+      </template>
+   
+    <template id="home.html">
+         <ons-page id="home">
+		 <ons-toolbar id="home-toolbar">
+               <div class="left">
+                 <ons-icon onclick="window.fn.open()" icon="md-menu" class="ons-icon zmdi zmdi-menu"></ons-icon> 
+               </div>
+               <div class="center">
+                  <ons-search-input onchange="loadlist(2,this.value)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+            <H3 style="padding: 0 10px;">Categories</H3>
+            <div class="swiper-container" id="category-container" >
+               <div class="swiper-wrapper" id="cat">
+                  <!-- Add Pagination -->
+               </div>
+            </div>
+            <h3 id="heading1" style="padding: 0 10px;"  ></h3>
+            <div class="swiper-container" id="slide1-container">
+               <div class="swiper-wrapper" id="slide1">
+               </div>
+            </div>
+            <H3 style="padding: 0 10px;"  id="heading2"></H3>
+            <div class=" swiper-container" id="slide2-container" >
+               <div class="swiper-wrapper" id ="slide2">
+                  <!-- Add Pagination -->
+               </div>
+            </div>
+			  <H3 style="padding: 0 10px;"  id="heading3"></H3>
+            <div class=" swiper-container" id="slide3-container" >
+               <div class="swiper-wrapper" id ="slide3">
+                  <!-- Add Pagination -->
+               </div>
+            </div>
+			 
+            
+			
+         </ons-page>
+        
+      </template>
+    <template id="list.html">
+         <ons-page id="list">
+          <ons-toolbar id="home-toolbar">
+               <div class="left" id="listleft">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="center">
+                  <ons-search-input onchange="loadlist(2,this.value)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+            <div class="conatiners" style="height:35px;">
+               <ons-row style="justify-content: flex-end;align-items: center;">
+               
+				   <ons-col style="width:33%; flex:0 0 33%;border:1px solid #ccc;height: 34px;    text-align: center;line-height: 30px;">
+                    <div class="filter" onclick="loadfiltercat()">Filter</div>
+                  </ons-col>
+				   
+                  <ons-col style="width:33%;flex:0 0 33%;border:1px solid #ccc;border-left:0;height: 34px;    text-align: center;">
+                     <ons-select class="select">
+                        <select onchange="changesort(this,0)" class="select-input">
+                           <option value="0">Sort <i class="fa fa-sort-amount-asc" aria-hidden="true"></i> </option>
+                           <option value="1">Price&uarr;</option>
+                           <option value="2">Price&darr;</option>
+                           <option value="3">Offer&uarr;</option>
+                           <option value="4">Offer&darr;</option>
+                           <option value="5">Category&uarr;</option>
+                           <option value="6">Category&darr;</option>
+                        </select>
+                     </ons-select>
+                  </ons-col>
+				     <ons-col style="width:10%; flex:0 0 10%;text-align: center;">
+                     <i style="margin-top:5px" id="viewicon" onclick="toggleview(0)" class="fa fa-th"></i>
+                  </ons-col>
+               </ons-row>
+            </div>
+            <ons-row class="listrow max-2" id="listrow">
+            </ons-row>
+			
+         </ons-page>
+      </template>
+    <template id="cart.html">
+         <ons-page id="cart">
+            <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-icon onclick="window.fn.open()" icon="md-menu" class="ons-icon zmdi zmdi-menu"></ons-icon>  
+               </div>
+               <div class="center">
+                  <ons-search-input onchange="loadlist(2,this.value)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+            <ons-row>
+               <ons-col style="width:50%">
+               </ons-col>
+               <ons-col style="width:50%; text-align:right;padding-right:15px">
+                  <i onclick="deletewholecart()" class="fa fa-trash-o"> Clear Cart</i>
+               </ons-col>
+            </ons-row>
+            <div id="listcart" class="listcart" style="padding-top: 10px;">
+            </div>
+            <p>
+               <ons-button id="checkoutbtn" disabled onclick="checkout()"  modifier="large">Checkout</ons-button>
+			   
+            
+            
+ 
+            </p>
+			
+         </ons-page>
+      </template>
+    <template id="account.html">
+         <ons-page id="account">
+            <div id="account">
+            </div>
+         </ons-page>
+      </template>
+    <template id="consultation.html">
+         <ons-page >
+		 <ons-toolbar id="home-toolbar">
+               <div class="left">
+                 <ons-icon onclick="window.fn.open()" icon="md-menu" class="ons-icon zmdi zmdi-menu"></ons-icon>  
+               </div>
+               <div class="center">
+                  <ons-search-input onchange="loadlist(2,this.value,100)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+            <div id="consultation-step1" style="display:none">
+               <div class="bookly-form-group" data-type="category"><label>Category</label> <div ><select id="catselect" onchange="service(this)"></select></div> </div>
+               <div class="bookly-form-group" data-type="service"><label>Service</label> <div><select onchange="staff(this)" id="serviceselect"></select></div> </div>
+               <div class="bookly-right">
+                  <button class=" bookly-mobile-next-step " data-style="zoom-in" data-spinner-size="40" onclick="bookingnext1()">
+                      <span class="ladda-label">Next</span>
+                  </button>
+              </div>
+			  </div>
+			 <div class="abs">
+			<h3>Consultation</h3>
+           <div id="servicegrid">
+		   
+         </div>
+            <style>
+               div#consultation-step1 {
+    padding: 20px;
+    border: 1px solid #549c2f;
+    margin: 30px;
+}
+.bookly-form-group {
+    margin-bottom: 10px;
+}
+.bookly-form-group select {
+    width: 100%;
+    height: 40px;
+    padding: 6px;
+    margin-top: 9px;
+    border:1px solid #333
+}
+.bookly-right {
+    text-align: right;
+}
+.bookly-mobile-next-step {
+    background: #549c2f;
+    border: 0;
+    color: #fff;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+            </style>
+         </ons-page>
+      </template>
+      <template id="consultation1.html">
+         <ons-page id="consult1">
+            <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="center">
+                  <ons-search-input onchange="loadlist(2,this.value,100)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+            <div id="consultation-step2">
+			
+			 <div class="bookly-form-group" data-type="staff"><label>Employee</label> <div id="employeediv"><select id="employeeselect"></select></div> </div>
+              
+			
+             <div class="bookly-form-group">
+                        <span class="bookly-bold">I'm available on or after</span>
+                        <div>
+                           <input type="text" id="datepicker" onfocus=""/>                   
+				   </div>
+                  </div>
+                 
+             <div class="bookly-time-range bookly-js-time-range bookly-left bookly-mobile-float-none">
+               <div class="bookly-form-group bookly-time-from bookly-left">
+<span class="bookly-bold">Start from</span>
+<div>
+<select id="st" class="bookly-js-select-time-from">
+<option value="08:00" selected="selected">8:00 am</option>
+<option value="09:00">9:00 am</option>
+<option value="10:00">10:00 am</option>
+<option value="11:00">11:00 am</option>
+<option value="12:00">12:00 pm</option>
+<option value="13:00">1:00 pm</option>
+<option value="14:00">2:00 pm</option>
+<option value="15:00">3:00 pm</option>
+<option value="16:00">4:00 pm</option>
+<option value="17:00">5:00 pm</option>
+<option value="18:00">6:00 pm</option>
+</select>
+</div>
+</div>                        <div class="bookly-form-group bookly-time-to bookly-left">
+<span class="bookly-bold">Finish by</span>
+<div>
+<select id="et" class="bookly-js-select-time-to">
+<option value="08:00">8:00 am</option>
+<option value="09:00">9:00 am</option>
+<option value="10:00">10:00 am</option>
+<option value="11:00">11:00 am</option>
+<option value="12:00">12:00 pm</option>
+<option value="13:00">1:00 pm</option>
+<option value="14:00">2:00 pm</option>
+<option value="15:00">3:00 pm</option>
+<option value="16:00">4:00 pm</option>
+<option value="17:00">5:00 pm</option>
+<option value="18:00" selected="selected">6:00 pm</option>
+</select>
+</div>
+</div>                                    </div>
+               <div class="bookly-right">
+                  <button class="bookly-mobile-next-step" data-style="zoom-in" data-spinner-size="40" onclick="bookingnext2()">
+                      <span class="ladda-label">Next</span>
+                  </button>
+              </div>
+            </div>
+           
+            <style>
+               div#consultation-step2 {
+    padding: 20px;
+    border: 1px solid #549c2f;
+    margin: 30px;
+}
+.bookly-form-group {
+    margin-bottom: 10px;
+}
+span.bookly-bold {
+    font-weight: bold;
+}
+.bookly-week-days{
+   display: flex;
+   display: -ms-flex;
+    margin: 10px 0;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.bookly-week-days > div{
+   display: table-cell;
+   text-align: center;
+}
+input.bookly-js-week-day{
+   
+   height: 20px;
+   width: 20px;
+   visibility: hidden;
+   transition: .3s ease;
+   -webkit-transition: .3s ease;
+   -ms-transition: .3s ease;
+}
+.bookly-week-days label {
+    background: #549c2f;
+    height: 25px;
+    width: 25px;
+    display: block;
+    margin-top: 7px;
+
+}
+input.bookly-js-week-day:checked {
+   visibility: visible;
+   margin-left: 2px;
+}
+
+.bookly-form-group select,.bookly-form-group input {
+    width: 100%;
+    height: 40px;
+    padding: 6px;
+    margin-top: 9px;
+    font-size: 16px;
+    border:1px solid #333
+}
+.bookly-right {
+    text-align: right;
+}
+.bookly-mobile-next-step{
+    background: #549c2f;
+    border: 0;
+    color: #fff;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+            </style>
+			 <script>
+      ons.getScriptPage().onInit = function() {
+        // Set up page's content or anything else
+		
+        $( "#datepicker" ).datepicker({ dateFormat: 'dd-mm-yy' });
+        
+      };
+    </script>
+         </ons-page>
+		 
+      </template>
+      <template id="consultation2.html">
+         <ons-page id="consultation2">
+		 
+            <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="center">
+                  <ons-search-input onchange="loadlist(2,this.value,100)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+            <div id="consultation-step3">
+               <div class="container" id="timeslots">
+	
+                  
+                 
+               </div>
+               
+               <div class="bookly-right">
+                  <button class="bookly-mobile-next-step" data-style="zoom-in" data-spinner-size="40" onclick="bookingnext3()">
+                      <span class="ladda-label">Next</span>
+                  </button>
+              </div>
+            </div>
+            <style>
+               div#consultation-step3 {
+    padding: 20px;
+    border: 1px solid #549c2f;
+    margin: 30px;
+}
+.bookly-form-group {
+    margin-bottom: 10px;
+}
+
+.bookly-form-group select {
+    width: 100%;
+    height: 40px;
+    padding: 6px;
+    margin-top: 9px;
+    border:1px solid #333
+}
+.container ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+	overflow: auto;
+}
+
+ul li{
+  color: #009688;
+  display: block;
+  position: relative;
+  float: left;
+  width: 100%;
+}
+
+ul li input[type=radio]{
+  position: absolute;
+  visibility: hidden;
+}
+
+ul li label{
+  display: block;
+  position: relative;
+  font-weight: 300;
+  font-size: 1.35em;
+  padding: 8px 25px 8px 70px;
+  height: 45px;
+  z-index: 9;
+  cursor: pointer;
+  -webkit-transition: all 0.25s linear;
+  border: 1px solid #009688;
+}
+
+ul li:hover label{
+	color: #FFFFFF;
+}
+.dt {
+    background: #009688;
+    text-align: center;
+    padding: 8px;
+    color: #fff;
+    width: 160px;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 9px;
+}
+ul li .check{
+  display: block;
+  position: absolute;
+  border: 5px solid #AAAAAA;
+  border-radius: 100%;
+  height: 20px;
+  width: 20px;
+  top: 6px;
+  left: 20px;
+	z-index: 5;
+	transition: border .25s linear;
+	-webkit-transition: border .25s linear;
+}
+
+ul li:hover .check {
+  border: 5px solid #FFFFFF;
+}
+
+ul li .check::before {
+  display: block;
+  position: absolute;
+	content: '';
+  border-radius: 100%;
+  height: 10px;
+  width: 10px;
+  top: 5px;
+	left: 5px;
+  margin: auto;
+	transition: background 0.25s linear;
+	-webkit-transition: background 0.25s linear;
+}
+
+input[type=radio]:checked ~ .check {
+  border: 5px solid #009688;
+}
+
+input[type=radio]:checked ~ .check::before{
+  background: #009688;
+}
+
+input[type=radio]:checked ~ label{
+   color: #fff;
+    background: #1e3833;
+    z-index: -1;
+}
+.bookly-right {
+    text-align: right;
+}
+.bookly-mobile-next-step{
+    background: #549c2f;
+    border: 0;
+    color: #fff;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+            </style>
+         </ons-page>
+      </template>
+      <template id="consultation3.html">
+         <ons-page id="account3">
+            <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="center">
+                  <ons-search-input onchange="loadlist(2,this.value,100)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+            <div id="consultation-step4">
+               
+            </div>
+            <style>
+               div#consultation-step4 {
+    padding: 20px;
+    border: 1px solid #549c2f;
+    margin: 30px;
+}
+.bookly-form-group {
+    margin-bottom: 10px;
+}
+
+.bookly-form-group select,
+.bookly-form-group input{
+    width: 100%;
+    height: 40px;
+    padding: 6px;
+    margin-top: 9px;
+    box-sizing: border-box;
+    border: 1px solid #333;
+}
+.bookly-right {
+    text-align: right;
+}
+.bookly-mobile-next-step{
+    background: #549c2f;
+    border: 0;
+    color: #fff;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+            </style>
+         </ons-page>
+      </template>
+      <template id="consultation4.html">
+         <ons-page id="account3">
+            <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="center">
+                  <ons-search-input onchange="loadlist(2,this.value,100)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+            <div id="consultation-step4">
+               Thank you you will be contacted soon
+               </div>
+         </ons-page>
+      </template>
+    <template id="filter.html">
+         <ons-page id="filter">
+		    <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="center">
+                  <ons-search-input onchange="loadlist(2,this.value,100)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+          	<ons-list id="filtercont" style="margin-top: 60px;">
+			
+       </ons-list>
+	   <ons-button class="btnbuy button button--material" onclick="resetilter()" style="width:95%;margin:5px auto;border-radius: 6px;  background: #549c2f;text-align: center;display: block;" modifier="material" ripple=""><ons-ripple modifier="material" class="ripple--material ripple"><div class="ripple__wave ripple--material__wave"></div><div class="ripple__background ripple--material__background"></div></ons-ripple>Reset</ons-button>
+	   <ons-button class="btncart button button--material" onclick="applyfilter( )" style="width:95%;margin:5px auto;border-radius: 6px;  background: #000;text-align: center;display: block;" modifier="material" ripple=""><ons-ripple modifier="material" class="ripple--material ripple"><div class="ripple__wave ripple--material__wave"></div><div class="ripple__background ripple--material__background"></div></ons-ripple>Apply Now</ons-button>
+	    <style>
+		 ons-list-item.list-item.list-item--expandable.list-item--material{
+		  background: #f3f3f3;
+   }
+ons-button.btnbuy.button.button--material {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 50% !important;
+    border-radius: 0 !important;
+}
+ons-button.btncart.button.button--material {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 50% !important;
+    border-radius: 0 !important;
+}
+ons-list-item.filter_subcat_title.list-item.list-item--material {
+    padding-left: 40px;
+}
+		 </style>
+         </ons-page>
+		
+      </template>
+    <template id="prod.html">
+         <ons-page id="prod">
+            <ons-toolbar id="home-toolbar">
+               <div class="left">
+                 <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="center">
+                  <ons-search-input onchange="loadlist(2,this.value,100)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+            <div style="padding-bottom:40px;margin-bottom:40px" id="proddet"></div>
+            
+			<style>
+			ons-button.btncart.button.button--material {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 50% !important;
+	
+    border-radius: 0 !important;
+	z-index:1000;
+}
+ons-button.btnbuy.button.button--material {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 50% !important;
+    border-radius: 0 !important;
+		z-index:1000;
+}
+			</style>
+         </ons-page>
+      </template>
+    <template id="login.html">
+         <ons-page id="login">
+		 <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               
+			    <div class="right">
+                  <ons-toolbar-button onclick="changepage('tabbar.html',2)">Skip</ons-toolbar-button>
+               </div>
+            </ons-toolbar>
+            <div style="text-align: center; margin-top: 200px">
+			     <div class="logo"></div>
+			   <p>
+                  <ons-input id="username" placeholder="Mobile" modifier="underbar"></ons-input>
+               </p>
+               <p>
+                  <ons-input id="password" placeholder="Password" type="password"  modifier="underbar"> </ons-input>
+               </p>
+               <p>
+                  <ons-button data="hi" onclick="login(this)">Sign in</ons-button>
+               </p>
+               <p>
+                  <ons-button onclick="changepage('signup.html',1)" modifier="quiet">Signup</ons-button>
+                  |
+                  <ons-button onclick="changepage('forgot.html',1)" modifier="quiet">Forgot password</ons-button>
+               </p>
+            </div>
+         </ons-page>
+      </template>
+    <template id="signup.html">
+         <ons-page id="signup">
+		  <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               
+			    <div class="right">
+                  <ons-toolbar-button onclick="changepage('tabbar.html',2)">Skip</ons-toolbar-button>
+               </div>
+            </ons-toolbar>
+            <div style="text-align: center; margin-top: 200px">
+			<div class="logo"></div>
+               <p>
+                  <ons-input id="rmobile" placeholder="Mobile" modifier="underbar"></ons-input>
+               </p>
+               <p>
+                  <ons-input id="rfname" placeholder="First Name" modifier="underbar"></ons-input>
+               </p>
+               <p>
+                  <ons-input id="rlname" placeholder="Last Name" modifier="underbar"></ons-input>
+               </p>
+               <p>
+                  <ons-input id="remail" placeholder="Email" modifier="underbar"></ons-input>
+               </p>
+               <p>
+                  <ons-input id="rpassword" placeholder="Password" type="password" modifier="underbar">
+                  </ons-input>
+               </p>
+               <p>
+                  <ons-button onclick="register()">Register</ons-button>
+               </p>
+            </div>
+         </ons-page>
+      </template>
+    <template id="forgot.html">
+	 
+         <ons-page id="forgot">
+		 <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               
+			    <div class="right">
+                  <ons-toolbar-button onclick="changepage('tabbar.html',2)">Skip</ons-toolbar-button>
+               </div>
+            </ons-toolbar>
+            <div style="text-align: center; margin-top: 200px">
+			<div class="logo"></div>
+               <p>
+                  <ons-input id="fmobile" placeholder="Mobile" modifier="underbar"></ons-input>
+               </p>
+               <p>
+                  <ons-input id="femail" placeholder="Email" modifier="underbar"></ons-input>
+               </p>
+               <p>
+                  <ons-button onclick="forgotpassword()">Send OTP</ons-button>
+               </p>
+            </div>
+         </ons-page>
+      </template>
+    <template id="reset.html">
+	
+         <ons-page id="reset">
+		  <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               
+			    <div class="right">
+                  <ons-toolbar-button onclick="changepage('tabbar.html',2)">Skip</ons-toolbar-button>
+               </div>
+            </ons-toolbar>
+            <div style="text-align: center; margin-top: 200px">
+			<div class="logo"></div>
+               <p>
+                  <ons-input id="otp" placeholder="OTP" modifier="underbar"></ons-input>
+               </p>
+               <p>
+                  <ons-input id="rpassword" placeholder="Password" modifier="underbar"></ons-input>
+               </p>
+               <p>
+                  <ons-input id="rpassword2" placeholder="Confirm Password" modifier="underbar"></ons-input>
+               </p>
+               <p>
+                  <ons-button onclick="resetpass()">Reset Password</ons-button>
+               </p>
+            </div>
+         </ons-page>
+      </template>
+    <template id="list2.html">
+         <ons-page id="list2">
+         <ons-page id="brand">
+            <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="center">
+                  <ons-search-input onchange="loadlist(2,this.value)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+			<div class="conatiners" style="height:35px;">
+               <ons-row style="justify-content: flex-end;align-items: center;">
+               
+				   <ons-col style="width:33%; flex:0 0 33%;border:1px solid #ccc;height: 34px;    text-align: center;line-height: 30px;">
+                    <div class="filter" onclick="loadfiltercat()">Filter</div>
+                  </ons-col>
+				   
+                  <ons-col style="width:33%;flex:0 0 33%;border:1px solid #ccc;border-left:0;height: 34px;    text-align: center;">
+                     <ons-select class="select">
+                        <select onchange="changesort(this,1)" class="select-input">
+                           <option value="0">Sort <i class="fa fa-sort-amount-asc" aria-hidden="true"></i> </option>
+                           <option value="1">Price&uarr;</option>
+                           <option value="2">Price&darr;</option>
+                           <option value="3">Offer&uarr;</option>
+                           <option value="4">Offer&darr;</option>
+                           <option value="5">Category&uarr;</option>
+                           <option value="6">Category&darr;</option>
+                        </select>
+                     </ons-select>
+                  </ons-col>
+				     <ons-col style="width:10%; flex:0 0 10%;text-align: center;">
+                     <i style="margin-top:5px" id="viewicon" onclick="toggleview(1)" class="fa fa-th"></i>
+                  </ons-col>
+               </ons-row>
+            </div>
+            <ons-row id="listrow2">
+            </ons-row>
+         </ons-page>
+      </template>
+    <template id="subcategory.html">
+         <ons-page id="subcategory">
+            <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="center">
+                  <ons-search-input onchange="loadlist(2,this.value)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+            <div id="listsubcateg">
+            </div>
+			<ons-row class="listrow max-2" id="listrow3">
+            </ons-row>
+         </ons-page>
+      </template>
+	   <template id="category.html">
+         <ons-page id="category">
+            <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="center">
+                  <ons-search-input onchange="loadlist(2,this.value)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+            <div id="listcateg">
+            </div>
+         </ons-page>
+      </template>
+    <template id="profile.html">
+         <ons-page id="profile">
+            <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="center">
+                  <ons-search-input onchange="loadlist(2,this.value,100)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+            <div id="profile" style="text-align: center; margin-top: 0px">
+               <div class="my-account">
+                  <ul>
+                     <li>
+                        <i onclick="loadwishlist(1)" class="fa fa-bookmark-o"></i>
+                        <p onclick="loadwishlist(1)">Watch List</p>
+                     </li>
+                     
+                     <li>
+                        <i onclick="myorders()" class="fa fa-shopping-bag"></i>
+                        <p onclick="myorders()">Order History</p>
+                     </li>
+                     
+                     
+                     <li>
+                        <i onclick="userprofile()" class="fa fa-cog"></i>
+                        <p onclick="userprofile()">Profile</p>
+                     </li>
+                  </ul>
+                  <div onclick="signout()" class="prfl"><span></span><b>Logout</b></div>
+               </div>
+               <p>
+                  <ons-button onclick="userprofile()" modifier="quiet">Update</ons-button>
+               </p>
+            </div>
+         </ons-page>
+      </template>
+    <template id="checkout.html">
+         <ons-page id="checkout">
+            <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="center">
+                  <h3>CHECKOUT</h3>
+               </div>
+            </ons-toolbar>
+            <div id="checkout" style="text-align: center; margin-top: 25px">
+               
+               <p>
+                  <ons-input id="cprofile_fn" placeholder="First Name" modifier="underbar" class="inputs"></ons-input>
+               </p>
+               <p>
+                  <ons-input id="cprofile_ln" placeholder="Last Name" modifier="underbar" class="inputs"></ons-input>
+               </p>
+               <p>
+                  <textarea class="textarea inputs" id="cprofile_sa" rows="3" placeholder="Shipping Address"></textarea>
+               </p>
+               <p>
+                  <textarea class="textarea inputs" id="cprofile_ba" rows="3" placeholder="Billing Address"></textarea>
+				    </p>
+
+				    <p id="countrylist">
+            </p>
+              
+				     <p id="statelist">
+                  
+				     </p>
+					    <p id="citylist">
+                  
+				     </p>
+              
+               <p>
+                  <ons-input id="phone" placeholder="Phone Number" modifier="" class="inputs"></ons-input>
+               </p>
+		<ons-list>
+    <ons-list-item tappable>
+      <label class="left">
+        <ons-checkbox input-id="gps" onchange="storegpslocation()"></ons-checkbox>
+      </label>
+      <label for="gps" class="center">
+        Deliver to current GPS Location
+      </label>
+    </ons-list-item>
+	</ons-list>
+			   <div class="sub-total" style="width: 90%; background: #fff;    text-align: left;box-shadow: 0 1px 5px 1px rgba(0,0,0,.1);margin: 10px auto; border-radius: 6px;padding: 10px; box-sizing: border-box;"><p>Sub Total <span id="subtotal" style=" float: right;"></span></p><p>Shipping charge <span id="shiptotal" style=" float: right;">0</span></p><p>Total saving <span  id="tot_savings" style=" float: right;"></span></p><p><strong>Total Payble <span id="totpayable" style=" float: right;"></span></strong></p> </div>
+               <div id ="cart_total"></div>
+               </p>
+               <p>
+               <div class="hidden" id ="cart_ref"></div>
+               </p>
+               <p>
+                  <ons-button id="codbtn" disabled="true"  onclick="cod()"  modifier="large">Cash On Delivery</ons-button>
+ <ons-button modifier="large"  onclick="razorpay()" class="rzp-btn" id="rzp-button">Pay with Razorpay</ons-button >
+  <ons-button modifier="large" onclick="ezpay()" id="buyNowBtn"> Pay With Ezpay</ons-button >
+							 
+				 <ons-button  modifier="large" onclick="payp()" id="buyNowBtn"> Pay With Card/Paypal</ons-button >
+				 
+			<ons-button class="hidden" modifier="large" onclick="changepage('checkoutiframe.html','1')" > Checkout Gateway !</ons-button >
+			
+   <ons-button modifier="large" class="hidden" id="buyInFutureBtn"> Pay in Future !</ons-button >
+   <ons-button modifier="large" class="hidden"  id="profileSharingBtn"> Profile Sharing !</ons-button >
+   <ons-button modifier="large" class="hidden"  id="cardScanBtn">Advanced: Use card.io scan only</ons-button >
+   
+               </p>
+            </div>
+			<style>.hidden{visibility:hidden}</style>
+         </ons-page>
+      </template>
+    <template id="myorders.html">
+         <ons-page id="myorders">
+            <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="center">
+                  <ons-search-input onchange="loadlist(2,this.value,100)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+            <div id="myord">
+            </div>
+         </ons-page>
+      </template>
+	  
+	  
+	  
+	  
+	  
+	  
+	   <template id="userprofile.html">
+         <ons-page id="userprofile">
+            <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="center">
+                  <h3>Profile</h3>
+               </div>
+            </ons-toolbar>
+            <div id="profile" style="text-align: center; margin-top: 25px">
+              
+               <p>
+                  <ons-input id="profile_fn" placeholder="First Name" modifier="underbar" class="inputs"></ons-input>
+               </p>
+               <p>
+                  <ons-input id="profile_ln" placeholder="Last Name" modifier="underbar" class="inputs"></ons-input>
+               </p>
+			    <p>
+                  <ons-input id="profile_email" placeholder="Last Name" modifier="underbar" class="inputs"></ons-input>
+               </p>
+               <p>
+                  <textarea class="textarea inputs" id="profile_sa" rows="3" placeholder="Shipping Address"></textarea>
+               </p>
+               <p>
+                  <textarea class="textarea inputs" id="profile_ba" rows="3" placeholder="Billing Address"></textarea>
+				    
+					</p>
+					<p>
+<ons-button id="profileupdatebtn"  onclick="updateprofile()"  modifier="large">Update</ons-button>					
+              </p>
+         
+			   
+            </div>
+			<style>.hidden{visibility:hidden}</style>
+         </ons-page>
+      </template>
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+    <template id="myorders.html">
+         <ons-page id="myorders">
+            <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="center">
+                  <ons-search-input onchange="loadlist(2,this.value,100)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+            <div id="myord">
+            </div>
+         </ons-page>
+      </template>
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+    <template id="brandstore.html">
+         <ons-page id="brandstores">
+            <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="center">
+                  <ons-search-input onchange="loadlist(2,this.value,100)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+            <div id="brandstore">
+            </div>
+         </ons-page>
+      </template>
+	  <template id="wishlist.html">
+         <ons-page id="wishlist">
+            <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="center">
+                  <ons-search-input onchange="loadlist(2,this.value,100)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+           <ons-row id="wishlistgrid">
+		   
+		   
+		   </ons-row>
+         </ons-page>
+      </template>
+	  
+	  
+	  
+	  
+	     <template id="checkoutiframe.html">
+         <ons-page id="checkoutiframe">
+            <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="center">
+                  <ons-search-input onchange="loadlist(2,this.value)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+            <div id="chkt">
+			 <!-- add frames script -->
+  <script>
+    var payButton = document.getElementById("pay-button");
+    var form = document.getElementById("payment-form");
+
+    Frames.init("pk_test_74dbb382-ceb1-490e-ad4b-e4621ea2a6ec");
+
+    Frames.addEventHandler(
+      Frames.Events.CARD_VALIDATION_CHANGED,
+      function (event) {
+        console.log("CARD_VALIDATION_CHANGED: %o", event);
+
+        payButton.disabled = !Frames.isCardValid();
+      }
+    );
+
+    Frames.addEventHandler(
+      Frames.Events.CARD_TOKENIZED,
+      function (event) {
+        var el = document.querySelector(".success-payment-message");
+        el.innerHTML = "Card tokenization completed<br>" +
+          "Your card token is: <span class=\"token\">" + event.token + "</span>";
+           //window.location.href="next.php?token="+ event.token;
+		   
+var settings = {
+  "url": "https://gccsolution.com/GEHOBEN/api/checkoutcard",
+  "method": "POST",
+  "data": {
+    "token":event.token,
+	"amount":"100",
+	"currency":"INR",
+	"ref_id":"1234"
+	
+  },
+};
+$.ajax(settings).done(function (response) {
+console.log(response);
+ });
+      }
+    );
+
+    form.addEventListener("submit", function (event) {
+ 	  payButton.disabled = true // disables pay button once submitted
+      event.preventDefault();
+      Frames.submitCard();
+    });
+  </script>
+
+
+
+  <form id="payment-form" method="POST" action="https://merchant.com/charge-card">
+    <div class="one-liner">
+      <div class="card-frame">
+        <!-- form will be added here -->
+      </div>
+      <!-- add submit button -->  
+      <button id="pay-button" disabled>
+        PAY
+      </button>
+    </div>
+    <p class="success-payment-message"></p>
+  </form>
+
+  <script>
+    var payButton = document.getElementById("pay-button");
+    var form = document.getElementById("payment-form");
+
+    Frames.init("pk_test_74dbb382-ceb1-490e-ad4b-e4621ea2a6ec");
+
+    Frames.addEventHandler(
+      Frames.Events.CARD_VALIDATION_CHANGED,
+      function (event) {
+        console.log("CARD_VALIDATION_CHANGED: %o", event);
+
+        payButton.disabled = !Frames.isCardValid();
+      }
+    );
+
+    Frames.addEventHandler(
+      Frames.Events.CARD_TOKENIZED,
+      function (event) {
+        var el = document.querySelector(".success-payment-message");
+        el.innerHTML = "Card tokenization completed<br>" +
+          "Your card token is: <span class=\"token\">" + event.token + "</span>";
+           //window.location.href="next.php?token="+ event.token;
+		   
+var settings = {
+  "url": "https://gccsolution.com/GEHOBEN/api/checkoutcard",
+  "method": "POST",
+  "data": {
+    "token":event.token,
+	"amount":"100",
+	"currency":"INR",
+	"ref_id":"1234"
+	
+  },
+};
+$.ajax(settings).done(function (response) {
+console.log(response);
+ });
+      }
+    );
+
+    form.addEventListener("submit", function (event) {
+ 	  payButton.disabled = true // disables pay button once submitted
+      event.preventDefault();
+      Frames.submitCard();
+    });
+  </script>
+
+            </div>
+         </ons-page>
+      </template>
+	  
+	  
+	  
+	  
+    <script>
+        const savePokemon = (pokenumber, button) => {
+            addPokemonToGrid(pokenumber);
+            button.parentNode.parentNode.hideExpansion();
+        };
+    </script>
+    <script src="cordova.js"></script>
+     <script type="text/javascript" src="js/paypal-mobile-js-helper.js"></script>
+    <script src="js/index.js"></script>
+	
+</body>
+
+</html>

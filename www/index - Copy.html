@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<!--
+   Licensed to the Apache Software Foundation (ASF) under one
+   or more contributor license agreements.  See the NOTICE file
+   distributed with this work for additional information
+   regarding copyright ownership.  The ASF licenses this file
+   to you under the Apache License, Version 2.0 (the
+   "License"); you may not use this file except in compliance
+   with the License.  You may obtain a copy of the License at
+   
+   http://www.apache.org/licenses/LICENSE-2.0
+   
+   Unless required by applicable law or agreed to in writing,
+   software distributed under the License is distributed on an
+   "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, either express or implied.  See the License for the
+   specific language governing permissions and limitations
+   under the License.
+   -->
+<html>
+   <head>
+      <meta charset="utf-8">
+      <!--
+         Customize this policy to fit your own app's needs. For more guidance, see:
+             https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+         Some notes:
+             * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+             * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                 * Enable inline JS: add 'unsafe-inline' to default-src
+         -->
+      <meta name="format-detection" content="telephone=no">
+      <meta name="msapplication-tap-highlight" content="no">
+      <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+      <meta name="color-scheme" content="light dark">
+      
+	  <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+
+      <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/onsen/2.11.1/css/dark-onsen-css-components.css">
+
+      <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+      <link rel="stylesheet" href="style.css" >
+      <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/duotone.css" integrity="sha384-R3QzTxyukP03CMqKFe0ssp5wUvBPEyy9ZspCB+Y01fEjhMwcXixTyeot+S40+AjZ" crossorigin="anonymous"/>
+      <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css" integrity="sha384-eHoocPgXsiuZh+Yy6+7DsKAerLXyJmu2Hadh4QYyt+8v86geixVYwFqUvMU8X90l" crossorigin="anonymous"/>
+      <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css">
+      <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+      <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+      <script src="scripts/onsen_project.js"></script>
+      <script src="scripts/profile.js"></script>
+      <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/onsen/2.11.1/js/onsenui.min.js"></script> -->
+      <style>
+         .page--material__content {
+         padding-top:50px;}
+         .faq__content{
+         background-color:transparent !important}
+         ons-toolbar.toolbar.toolbar--material,.tabbar.ons-tabbar__footer.ons-swiper-tabbar.tabbar--material {
+         background: #fff;
+		 box-shadow: 0px 0px 3px 1px rgba(0,0,0,.2);
+         }
+         button.tabbar__button.tabbar--material__button{
+         color:#549c2f;
+         }
+         :checked + .tabbar__button{
+         color:#549c2f !important;
+         }
+         ons-icon.ons-icon.zmdi.zmdi-menu {
+         color: #549c2f;
+         font-size: 30px;
+         }
+		 .toolbar.toolbar--material+.page__background+.page__content{
+		 top:0;}
+         ons-toolbar-button.toolbar-button--material.toolbar-button{
+         color: #549c2f;
+         }
+         input.search-input.search-input--material{
+         height:40px;
+         background-color: #fff;
+         padding-left:40px
+         }
+         #category-container .swiper-slide img,#slide1-container .swiper-slide img {
+         height: 190px;
+	
+         }
+         #cart .page__content.page--material__content {
+         padding-top: 65px;
+         }
+         .conatiners{
+         width:100%;
+         padding:0 15px;    box-sizing: border-box;}
+         ons-search-input {
+         margin-right: 5px;
+         }
+         .inputs {
+         width: 90%;
+         }
+         select.select-input.inputs {
+         border: 1px solid #ccc;
+         margin: 10px 0;
+         height: 50px;
+         box-sizing: border-box;
+         background-image: none;
+         -webkit-apearance: auto;
+         appearance: auto;
+		 color: #9E9E9E;
+		 padding: 6px 10px;
+         }
+		 .ordergroup{
+		 background-color:#000;
+		 height}
+		 .inputs.textarea {
+    background: none;
+	    padding: 6px 10px;
+}
+.text-input--material__label {
+left:10px;
+top:6px
+}
+         .toolbar--material__center,.toolbar--material__left, .toolbar--material__right{
+         color:#333;}
+         .back-button--material__icon{
+         fill:#333}
+         input.text-input.text-input--material.text-input--underbar {
+
+         background-image:none;
+         }
+         h3{margin:0}
+         ons-button#chkbtn {
+         position: fixed;
+         width: 100%;
+         left: 0;
+         bottom: 0;
+         padding: 10px;
+         }
+         .my-account ul {
+         list-style: none;
+         background: #333;
+         color: #fff;
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+         padding: 15px 0;
+         margin:0;
+         }
+         .my-account ul li {
+         flex: 0 0 33.33%;
+         font-size: 13px;
+         margin: 10px 0;
+         }
+         .prfl {
+         background: #FFC107;
+         display: flex;
+         justify-content: space-between;
+         padding: 10px 20px;
+         color: #fff;
+         }
+         .my-account ul li i{
+         font-size:16px}
+		 .inputs input, .inputs select, .inputs textarea {
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    height: 50px;
+    background-color: #fff !important;
+	box-sizing:border-box;
+}
+.star{
+font-size:15px;
+}
+body {
+    font-family: 'Comfortaa' !important;
+}
+      </style>
+      <title>Hello World</title>
+   </head>
+   <body>
+      <ons-navigator id="appNavigator" swipeable swipe-target-width="80px">
+         <ons-page>
+            <ons-splitter id="appSplitter">
+               <ons-splitter-side id="sidemenu" page="sidemenu.html" swipeable side="left" collapse="" width="260px"></ons-splitter-side>
+               <ons-splitter-content page="tabbar.html"></ons-splitter-content>
+            </ons-splitter>
+         </ons-page>
+      </ons-navigator>
+      <template id="tabbar.html">
+         <ons-page id="tabbar-page">
+            <ons-toolbar>
+               <div class="left">
+                  <ons-toolbar-button onclick="fn.toggleMenu()">
+                     <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
+                  </ons-toolbar-button>
+               </div>
+               <div class="right">
+                  <ons-search-input onchange="loadlist(2,this.value)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+            <ons-tabbar  id="appTabbar" position="bottom" var="myTabbar">
+               <ons-tab style="width:25%" label="Home" icon="fa-home" page="home.html" active></ons-tab>
+               <ons-tab  style="width:25%" label="Products" icon="fa-cubes"  page="list.html"></ons-tab>
+               <ons-tab style="width:25%" label="consultation" icon="fa-user-md" page="consultation.html"></ons-tab>
+               <ons-tab id="cartlogo" style="width:25%" label="Cart" icon="fa-shopping-cart"  page="cart.html"  ></ons-tab>
+            </ons-tabbar>
+            <style>
+               .left{
+               font-size: 24px;
+               }
+               .search-input{ margin-top: 8px;margin-left: 0px;}
+            </style>
+            <script>
+               ons.getScriptPage().addEventListener('prechange', function(event) {
+                 if (event.target.matches('#appTabbar')) {
+                  // event.currentTarget.querySelector('ons-toolbar .center').innerHTML = event.tabItem.getAttribute('label');
+                 }
+               });
+            </script>
+         </ons-page>
+      </template>
+      <template id="sidemenu.html">
+         <ons-page>
+            <ons-list id="menu">
+               <div class="title">AyurYoga</div>
+               <ons-list-items>
+                  <ons-icon icon="fa-home" class="ons-icon ion-home "></ons-icon>
+                  Home
+               </ons-list-items>
+               <ons-list-items onclick='profile()'>
+                  <ons-icon icon="fa-cog" class="ons-icon ion-home "></ons-icon>
+                  Profile
+               </ons-list-items>
+               <ons-list-items onclick="myorders()" >
+                  <ons-icon icon="fa-shopping-bag" class="ons-icon ion-home "></ons-icon>
+                  My Orders
+               </ons-list-items>
+               <ons-list-items onclick="signout()">
+                  <ons-icon  icon="fa-sign-out" class="ons-icon ion-home "></ons-icon>
+                  Signout
+               </ons-list-items>
+               <ons-list-items>
+                  <ons-icon icon="fa-history" class="ons-icon ion-home "></ons-icon>
+                  History
+               </ons-list-items>
+            </ons-list>
+            <script>
+               ons.getScriptPage().onInit = function() {
+                 // Set ons-splitter-side animation
+                 this.parentElement.setAttribute('animation', ons.platform.isAndroid() ? 'overlay' : 'reveal');
+               };
+            </script>
+            <style>
+               ons-list#kitten-list {
+               padding: 30px 0;
+               }
+               .most.list-header{color:#111}
+               .title{
+               width: 100%;
+               font-size: 30px;
+               padding: 10px;
+               background: #fff;
+               }
+               .most-selling .checkbox__input:checked + .checkbox--material__checkmark:after{
+               top: -10px;
+               left: -20px;
+               border-color:#fff;
+               }
+               #toggle-content{
+               margin-right: 10px;
+               padding-bottom: 10px;
+               text-align: right;
+               }
+               #menu{
+               justify-content: flex-start;
+               }
+               #menu ons-list-items {
+               color: #444;
+               display: block;
+               width: 100%;
+               padding: 10px;
+               background: none;
+               min-height: auto;
+               text-align: left;
+               }
+               ons-icon.ons-icon{
+               vertical-align: top !important;
+               margin-right: 5px;
+               }
+               .listrow ons-col{
+               max-width: 100% !important;
+               }
+             .listrow.max-2 ons-col{
+               max-width: 49% !important;
+               }
+              #home h3 {
+    text-align: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+#home h3:after {
+    content: "";
+    width: 150px;
+    height: 3px;
+    background: #93ba97;
+    display: block;
+    margin: auto;
+    position: absolute;
+    top: 27px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+			   ons-list-item.list-item.list-item--expandable.list-item--material {
+    display: flex;
+    flex-wrap: wrap;
+	    width: 90%;
+    box-shadow: 0 0 1px 1px rgba(0,0,0,.2);
+    margin: 10px auto;
+}
+.list-item--material__left{    padding: 4px 0;
+    min-width: 36px;
+    line-height: 1;
+    min-height: auto;
+}
+ .list-item--material__center{ padding: 4px 0;
+}
+            </style>
+         </ons-page>
+      </template>
+      <template id="home.html">
+         <ons-page id="home">
+            <H3 style="padding: 0 10px;">Categories</H3>
+            <div class="swiper-container" id="category-container" >
+               <div class="swiper-wrapper" id="cat">
+                  <!-- Add Pagination -->
+               </div>
+            </div>
+            <h3 id="heading1" style="padding: 0 10px;"  ></h3>
+            <div class="swiper-container" id="slide1-container">
+               <div class="swiper-wrapper" id="slide1">
+               </div>
+            </div>
+            <H3 style="padding: 0 10px;"  id="heading2"></H3>
+            <div class=" swiper-container" id="slide2-container" >
+               <div class="swiper-wrapper" id ="slide2">
+                  <!-- Add Pagination -->
+               </div>
+            </div>
+            <H3 style="padding: 0 10px;" id="heading3"></H3>
+            <div class=" swiper-container" id="slide3-container">
+               <div class="swiper-wrapper" id ="slide3">
+                  <!-- Add Pagination -->
+               </div>
+            </div>
+            <H3 style="padding: 0 10px;" id="heading4"></H3>
+            <div class=" swiper-container" id="slide4-container" >
+               <div class="swiper-wrapper" id ="slide4">
+                  <!-- Add Pagination -->
+               </div>
+            </div>
+         
+            <div class=" swiper-container" id="slide5-container">
+               <div class="swiper-wrapper" id ="slide5">
+                  <!-- Add Pagination -->
+               </div>
+            </div>
+            
+            <div class=" swiper-container" id="slide6-container">
+               <div class="swiper-wrapper" id ="slide6">
+                  <!-- Add Pagination -->
+               </div>
+            </div>
+           
+            <div class=" swiper-container" id="slide7-container">
+               <div class="swiper-wrapper" id ="slide7">
+                  <!-- Add Pagination -->
+               </div>
+            </div>
+			<div class="abs">
+			<h3>New Arrival</h3>
+           <ons-row class="listrow max-2" id="listrow ">
+<ons-col style="    flex: 0 0 49%;max-width: 49%;background: #fff;padding:5px;position: relative; margin-left :1px;margin-right :1px;margin-top:5px;">        <div  style="height:100%;width:100%;   height: 160px;background:url('https://thadathilfarmresort.com/shoppingcat/public/productimg/Abhayarishtam.jpg'); background-repeat: no-repeat;background-size: 100% 100%;"></div>         <div class="product-des" style="background-color:#ffffff; padding:5px;    box-sizing: border-box; width:100%; height:25%;  z-index:100;">           <p style="text-align: right;margin: 0;"></p>           <strong style="width:100%;font-size:18px;margin-bottom:4px;margin-top:10px;display:block;overflow-wrap: break-word;">Jirakadyarishtam</strong>           <p style="margin:4px 0"> Jirakadyarishtam</p></div>             </ons-col>
+<ons-col style="    flex: 0 0 49%;max-width: 49%;background: #fff;padding:5px;position: relative; margin-left :1px;margin-right :1px;margin-top:5px;">        <div style="height:100%;width:100%;   height: 160px;background:url('https://thadathilfarmresort.com/shoppingcat/public/productimg/Jirakadyarishtam.jpg'); background-repeat: no-repeat;background-size: 100% 100%;"></div>           <div class="product-des" style="background-color:#ffffff; padding:5px;    box-sizing: border-box; width:100%; height:25%;  z-index:100;">           <p style="text-align: right;margin: 0;"></p>         
+  <strong style="width:100%;font-size:18px;margin-bottom:4px;margin-top:10px;display:block;overflow-wrap: break-word;">Jirakadyarishtam</strong>           <p style="margin:4px 0"> Jirakadyarishtam</p></div>            </ons-col></ons-row>
+			</div>
+         </ons-page>
+      </template>
+      <template id="list.html">
+         <ons-page id="cart">
+            <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="right">
+                  <ons-search-input onchange="loadlist(2,this.value)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+            <div class="conatiners" style="height:35px;">
+               <ons-row style="justify-content: flex-end;align-items: center;">
+               
+				   <ons-col style="width:33%; flex:0 0 33%;border:1px solid #ccc;height: 34px;    text-align: center;line-height: 30px;">
+                    <div class="filter" onclick="loadfiltercat()">Filter</div>
+                  </ons-col>
+				   
+                  <ons-col style="width:33%;flex:0 0 33%;border:1px solid #ccc;border-left:0;height: 34px;    text-align: center;">
+                     <ons-select class="select">
+                        <select onchange="changesort(this)" class="select-input">
+                           <option value="0">Sort <i class="fa fa-sort-amount-asc" aria-hidden="true"></i> </option>
+                           <option value="1">Price&uarr;</option>
+                           <option value="2">Price&darr;</option>
+                           <option value="3">Offer&uarr;</option>
+                           <option value="4">Offer&darr;</option>
+                           <option value="5">Category&uarr;</option>
+                           <option value="6">Category&darr;</option>
+                        </select>
+                     </ons-select>
+                  </ons-col>
+				     <ons-col style="width10%; flex:0 0 10%;text-align: center;">
+                     <i style="margin-top:5px" id="viewicon" onclick="toggleview()" class="fa fa-th"></i>
+                  </ons-col>
+               </ons-row>
+            </div>
+            <ons-row class="listrow max-2" id="listrow ">
+            </ons-row>
+         </ons-page>
+      </template>
+      <template id="cart.html">
+         <ons-page id="cart">
+            <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="right">
+                  <ons-search-input onchange="loadlist(2,this.value)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+            <ons-row>
+               <ons-col style="width:"50%">
+               </ons-col>
+               <ons-col style="width:50%; text-align:right;padding-right:15px">
+                  <i onclick="deletewholecart()" class="fa fa-trash-o"> Clear Cart</i>
+               </ons-col>
+            </ons-row>
+            <div id="listcart" class="listcart" style="padding-top: 10px;">
+            </div>
+            <p>
+               <ons-button id="checkoutbtn" disabled onclick="checkout()"  modifier="large">Checkout</ons-button>
+            </p>
+			
+         </ons-page>
+      </template>
+      <template id="account.html">
+         <ons-page id="account">
+            <div id="account">
+            </div>
+         </ons-page>
+      </template>
+      <template id="consultation.html">
+         <ons-page id="account">
+            <div id="consultation">
+               <ons-row class="listrow">
+               </ons-row>
+            </div>
+         </ons-page>
+      </template>
+	   <template id="filter.html">
+         <ons-page id="filter">
+		    <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="right">
+                  <ons-search-input onchange="loadlist(2,this.value)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+          	<ons-list id="filtercont" style="margin-top: 60px;">
+			
+       </ons-list>
+	   <ons-button class="btnbuy button button--material" onclick="resetilter()" style="width:95%;margin:5px auto;border-radius: 6px;  background: #549c2f;text-align: center;display: block;" modifier="material" ripple=""><ons-ripple modifier="material" class="ripple--material ripple"><div class="ripple__wave ripple--material__wave"></div><div class="ripple__background ripple--material__background"></div></ons-ripple>Reset</ons-button>
+	   <ons-button class="btncart button button--material" onclick="applyfilter( )" style="width:95%;margin:5px auto;border-radius: 6px;  background: #000;text-align: center;display: block;" modifier="material" ripple=""><ons-ripple modifier="material" class="ripple--material ripple"><div class="ripple__wave ripple--material__wave"></div><div class="ripple__background ripple--material__background"></div></ons-ripple>Apply Now</ons-button>
+	    <style>
+		 ons-list-item.list-item.list-item--expandable.list-item--material{
+		  background: #f3f3f3;
+   }
+ons-button.btnbuy.button.button--material {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 50% !important;
+    border-radius: 0 !important;
+}
+ons-button.btncart.button.button--material {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 50% !important;
+    border-radius: 0 !important;
+}
+		 </style>
+         </ons-page>
+		
+      </template>
+      <template id="prod.html">
+         <ons-page id="prod">
+            <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="right">
+                  <ons-search-input onchange="loadlist(2,this.value)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+            <div style="padding-boottom:40px;margin-bottom:40px" id="proddet"></div>
+			<style>
+			ons-button.btncart.button.button--material {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 50% !important;
+	
+    border-radius: 0 !important;
+	z-index:1000;
+}
+ons-button.btnbuy.button.button--material {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 50% !important;
+    border-radius: 0 !important;
+		z-index:1000;
+}
+			</style>
+         </ons-page>
+      </template>
+      <template id="login.html">
+         <ons-page >
+            <div style="text-align: center; margin-top: 200px">
+			<button onclick="window.plugins.socialsharing.share('Optional message', 'Optional title', null, 'http://www.x-services.nl')">message, title, link</button>
+               <p>
+                  <ons-input id="username" placeholder="Mobile" modifier="underbar"></ons-input>
+               </p>
+               <p>
+                  <ons-input id="password" placeholder="Password" type="password"  modifier="underbar"> </ons-input>
+               </p>
+               <p>
+                  <ons-button data="hi" onclick="login(this)">Sign in</ons-button>
+               </p>
+               <p>
+                  <ons-button onclick="changepage('signup.html',1)" modifier="quiet">Signup</ons-button>
+                  |
+                  <ons-button onclick="changepage('forgot.html',1)" modifier="quiet">Forgot password</ons-button>
+               </p>
+            </div>
+         </ons-page>
+      </template>
+      <template id="signup.html">
+         <ons-page id="signup">
+            <div style="text-align: center; margin-top: 200px">
+               <p>
+                  <ons-input id="rmobile" placeholder="Mobile" modifier="underbar"></ons-input>
+               </p>
+               <p>
+                  <ons-input id="rfname" placeholder="First Name" modifier="underbar"></ons-input>
+               </p>
+               <p>
+                  <ons-input id="rlname" placeholder="Last Name" modifier="underbar"></ons-input>
+               </p>
+               <p>
+                  <ons-input id="remail" placeholder="Email" modifier="underbar"></ons-input>
+               </p>
+               <p>
+                  <ons-input id="rpassword" placeholder="Password" type="password" modifier="underbar">
+                  </ons-input>
+               </p>
+               <p>
+                  <ons-button onclick="register()">Register</ons-button>
+               </p>
+            </div>
+         </ons-page>
+      </template>
+      <template id="forgot.html">
+         <ons-page id="forgot">
+            <div style="text-align: center; margin-top: 200px">
+               <p>
+                  <ons-input id="fmobile" placeholder="Mobile" modifier="underbar"></ons-input>
+               </p>
+               <p>
+                  <ons-input id="femail" placeholder="Email" modifier="underbar"></ons-input>
+               </p>
+               <p>
+                  <ons-button onclick="forgotpassword()">Send OTP</ons-button>
+               </p>
+            </div>
+         </ons-page>
+      </template>
+      <template id="reset.html">
+         <ons-page id="reset">
+            <div style="text-align: center; margin-top: 200px">
+               <p>
+                  <ons-input id="otp" placeholder="OTP" modifier="underbar"></ons-input>
+               </p>
+               <p>
+                  <ons-input id="rpassword" placeholder="Password" modifier="underbar"></ons-input>
+               </p>
+               <p>
+                  <ons-input id="rpassword2" placeholder="Confirm Password" modifier="underbar"></ons-input>
+               </p>
+               <p>
+                  <ons-button onclick="resetpass()">Reset Password</ons-button>
+               </p>
+            </div>
+         </ons-page>
+      </template>
+      <template id="list2.html">
+         <ons-page id="list2">
+         <ons-page id="brand">
+            <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="right">
+                  <ons-search-input onchange="loadlist(2,this.value)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+            <ons-row id="listrow2">
+            </ons-row>
+         </ons-page>
+      </template>
+      <template id="subcategory.html">
+         <ons-page id="subcategory">
+            <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="right">
+                  <ons-search-input onchange="loadlist(2,this.value)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+            <div id="listsubcateg">
+            </div>
+         </ons-page>
+      </template>
+      <template id="profile.html">
+         <ons-page id="profile">
+            <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="right">
+                  <ons-search-input onchange="loadlist(2,this.value)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+            <div id="profile" style="text-align: center; margin-top: 0px">
+               <div class="my-account">
+                  <ul>
+                     <li>
+                        <i class="fa fa-bookmark-o"></i>
+                        <p>Watch List</p>
+                     </li>
+                     <li>
+                        <i class="fa fa-address-card-o"></i>
+                        <p>Address Book</p>
+                     </li>
+                     <li>
+                        <i class="fa fa-tags"></i>
+                        <p>Brands</p>
+                     </li>
+                     <li>
+                        <i class="fa fa-shopping-bag"></i>
+                        <p>Order History</p>
+                     </li>
+                     <li>
+                        <i class="fa fa-credit-card"></i>
+                        <p>Saved Cards</p>
+                     </li>
+                     <li>
+                        <i class="fa fa-bell-o"></i>
+                        <p>Coupans & Alerts</p>
+                     </li>
+                     <li>
+                        <i class="fa fa-gift"></i>
+                        <p>Gift Cards</p>
+                     </li>
+                     <li>
+                        <i class="fa fa-money"></i>
+                        <p>Cash Back</p>
+                     </li>
+                     <li>
+                        <i class="fa fa-cog"></i>
+                        <p>Profile</p>
+                     </li>
+                  </ul>
+                  <div class="prfl"><span>User Name</span><b>Logout</b></div>
+               </div>
+               <p>
+                  <ons-button onclick="updateprofile()" modifier="quiet">Update</ons-button>
+               </p>
+            </div>
+         </ons-page>
+      </template>
+      <template id="checkout.html">
+         <ons-page id="checkout">
+            <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="center">
+                  <h3>CHECKOUT</h3>
+               </div>
+            </ons-toolbar>
+            <div id="profile" style="text-align: center; margin-top: 25px">
+               <p>Add Delievery adress <span>Clear All</span> </p>
+               <p>
+                  <ons-input id="cprofile_fn" placeholder="First Name" modifier="underbar" class="inputs"></ons-input>
+               </p>
+               <p>
+                  <ons-input id="cprofile_ln" placeholder="Last Name" modifier="underbar" class="inputs"></ons-input>
+               </p>
+               <p>
+                  <textarea class="textarea inputs" id="cprofile_sa" rows="3" placeholder="Shipping Address"></textarea>
+               </p>
+               <p>
+                  <textarea class="textarea inputs" id="cprofile_ba" rows="3" placeholder="Billing Address"></textarea>
+				     <p>
+                  <select onchange="" class="select-input inputs">
+                     <option value="0">Chandigarh</option>
+                     <option value="1">Hydrabad</option>
+                     <option value="2">Delhi</option>
+                  </select>
+				     </p>
+					    <p>
+                  <select onchange="" class="select-input inputs">
+                     <option value="0">Select state</option>
+                     <option value="1">Arunachal pardesh</option>
+                     <option value="2">Delhi</option>
+                  </select>
+				     </p>
+               <p>
+                  <ons-input id="country" placeholder="India" modifier="" class="inputs"></ons-input>
+               </p>
+               <p>
+                  <ons-input id="phone" placeholder="Phone Number" modifier="" class="inputs"></ons-input>
+               </p>
+		<ons-list id="">
+       <ons-list-item expandable>
+      Payment Methods
+      <div class="expandable-content">
+	  
+	 <ons-list-item tappable>
+      <label class="left">
+        <ons-checkbox input-id="check-1"></ons-checkbox>
+      </label>
+      <label for="check-1" class="center">
+       paytm
+      </label>
+    </ons-list-item>
+    <ons-list-item tappable>
+      <label class="left">
+        <ons-checkbox input-id="check-2"></ons-checkbox>
+      </label>
+      <label for="check-2" class="center">
+        Debit Card
+      </label>
+    </ons-list-item>
+	  
+	  </div>
+    </ons-list-item>
+       </ons-list>
+			   <div class="sub-total" style="width: 90%; background: #fff;    text-align: left;box-shadow: 0 1px 5px 1px rgba(0,0,0,.1);margin: 10px auto; border-radius: 6px;padding: 10px; box-sizing: border-box;"><p>Sub Total <span style=" float: right;">125</span></p><p>Shipping charge <span style=" float: right;">0</span></p><p>Total saving <span style=" float: right;">0</span></p><p><strong>Total Payble <span style=" float: right;">125</span></strong></p> </div>
+               <div id ="cart_total"></div>
+               </p>
+               <p>
+               <div id ="cart_ref"></div>
+               </p>
+               <p>
+                  <ons-button id="codbtn" disabled="true"  onclick="cod()"  modifier="large">Cash On Delivery</ons-button>
+               </p>
+            </div>
+         </ons-page>
+      </template>
+      <template id="myorders.html">
+         <ons-page id="myorders">
+            <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="right">
+                  <ons-search-input onchange="loadlist(2,this.value)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+            <div id="myord">
+            </div>
+         </ons-page>
+      </template>
+	  <template id="brandstore.html">
+         <ons-page id="myorders">
+            <ons-toolbar id="home-toolbar">
+               <div class="left">
+                  <ons-back-button>Back</ons-back-button>
+               </div>
+               <div class="right">
+                  <ons-search-input onchange="loadlist(2,this.value)" width="100%"  placeholder="Search Products"></ons-search-input>
+               </div>
+            </ons-toolbar>
+            <div id="brandstore">
+            </div>
+         </ons-page>
+      </template>
+      <script>
+	  const savePokemon = (pokenumber, button) => {
+  addPokemonToGrid(pokenumber);
+  button.parentNode.parentNode.hideExpansion();
+};
+	  </script>
+      <script src="cordova.js"></script>
+      <script src="js/index.js"></script>
+   </body>
+</html>
